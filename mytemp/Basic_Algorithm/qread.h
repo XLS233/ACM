@@ -1,5 +1,6 @@
 #pragma once
-#include <iostream>
+
+#include <bits/stdc++.h>
 
 #ifdef QREAD
 struct InputOutputStream {

@@ -1,8 +1,6 @@
 #pragma once
 
-#include <string>
-#include <stack>
-#include <unordered_map>
+#include <bits/stdc++.h>
 
 int calc(std::string str) {
     std::unordered_map<char, int> pr = {{'+', 1}, {'-', 1}, {'*', 2}, {'/', 2}};

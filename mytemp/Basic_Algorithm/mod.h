@@ -1,8 +1,6 @@
 #pragma once
-#include <iostream>
-#include <assert.h>
 
-using i64 = long long;
+#include <bits/stdc++.h>
 
 template<class T>
 T power(T a, int b) {
@@ -17,6 +15,7 @@ T power(T a, int b) {
 template<int P>
 struct Z {
     // assume -P <= x < 2P
+    using i64 = long long;
     int norm(int x) {
         if (x < 0) {
             x += P;
