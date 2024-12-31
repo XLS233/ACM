@@ -1,7 +1,6 @@
 #pragma once
-#include <iostream>
-#include <vector>
-#include "SegmentTree.h"
+
+#include <bits/stdc++.h>
 
 // LCA、dfs序
 struct Tree {

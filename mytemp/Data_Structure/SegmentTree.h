@@ -1,5 +1,6 @@
 #pragma once
-#include <vector>
+
+#include <bits/stdc++.h>
 
 template<class Info>
 struct SegmentTree {
@@ -13,7 +14,7 @@ struct SegmentTree {
             tr[u] = v;
             return;
         }
-        int mid = l + r >> 1;
+        int mid = ((l + r)) >> 1;
         if (x <= mid) modify(u << 1, l, mid, x, v);
         else modify(u << 1 | 1, mid + 1, r, x, v);
         pushup(u);
@@ -21,14 +22,14 @@ struct SegmentTree {
     Info rangeQuery(int u, int l, int r, int L, int R) {
         if (r < L || l > R) return Info();
         if (l >= L && r <= R) return tr[u];
-        int mid = l + r >> 1;
+        int mid = ((l + r)) >> 1;
         return rangeQuery(u << 1, l, mid, L, R) + rangeQuery(u << 1 | 1, mid + 1, r, L, R);
     }
     SegmentTree(int _n) : n(_n), tr(_n * 4) {}
     SegmentTree(std::vector<Info> init) : SegmentTree(init.size()) {
         auto build = [&](auto build, int u, int l, int r) -> void {
             if (l == r) { tr[u] = init[r]; return; }
-            int mid = l + r >> 1;
+            int mid = (l + r) >> 1;
             build(build, u << 1, l, mid), build(build, u << 1 | 1, mid + 1, r);
             pushup(u);
         };
@@ -69,7 +70,7 @@ struct LazySegmentTree {
             return;
         }
         pushdown(u);
-        int mid = l + r >> 1;
+        int mid = (l + r) >> 1;
         if (x <= mid) modify(u << 1, l, mid, x, v);
         else modify(u << 1 | 1, mid + 1, r, x, v);
         pushup(u);
@@ -81,7 +82,7 @@ struct LazySegmentTree {
             return;
         }
         pushdown(u);
-        int mid = l + r >> 1;
+        int mid = (l + r) >> 1;
         rangeApply(u << 1, l, mid, L, R, v);
         rangeApply(u << 1 | 1, mid + 1, r, L, R, v);
         pushup(u);
@@ -90,7 +91,7 @@ struct LazySegmentTree {
         if (l > R || r < L) return Info();
         if (l >= L && r <= R) return tr[u];
         pushdown(u);
-        int mid = l + r >> 1;
+        int mid = (l + r) >> 1;
         auto res = rangeQuery(u << 1, l, mid, L, R) + rangeQuery(u << 1 | 1, mid + 1, r, L, R);
         pushup(u);
         return res;
@@ -99,7 +100,7 @@ struct LazySegmentTree {
     LazySegmentTree(std::vector<Info> init) : LazySegmentTree(init.size()) {
         auto build = [&](auto build, int u, int l, int r) -> void {
             if (l == r) { tr[u] = init[r]; return; }
-            int mid = l + r >> 1;
+            int mid = (l + r) >> 1;
             build(build, u << 1, l, mid), build(build, u << 1 | 1, mid + 1, r);
             pushup(u);
         };

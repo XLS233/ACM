@@ -1,6 +1,6 @@
 #pragma once
-#include <vector>
-#include <cmath>
+
+#include <bits/stdc++.h>
 
 template<class Info>
 struct ST {
