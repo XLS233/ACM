@@ -1,4 +1,2 @@
-#pragma once
-
-#include "Combination.h"
-#include "Prime.h"
+#include "C.h"
+#include "Primes.h"
